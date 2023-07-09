@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h3>파일 업로드!!</h3>
+    {% if user.is_authenticated %}
+    {% if result %}
+    {% if 'not bin' in result %}<script>alert("확장자가 .bin인 파일만 저장가능합니다.")</script>{% endif %}
+    {% if 'aleady file' in result %}<script>alert("사용자가 이미 동일한 이름의 파일을 소유하고 있습니다.")</script>{% endif %}
+    {% endif %}
+    <form action="mydrive" method="post" enctype="multipart/form-data" name="enfile">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="text">파일 설명</label>
+            <input type="text" class="form-control" name="text">
+        </div>
+        <div class="form-group">
+            <label for="file">파일</label>
+            <input type="file" name="fileinput">
+        </div>
+        <button type="submit" class="btn btn-default" onclick="ckeck();">저장하기</button>
+    </form>
+    {% else %}
+    <p>로그인 후 이용가능</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Download Page</title>
+    <style>
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Download Page</h1>
+    <p>Click the button below to download the exe file:</p>
+      <a href="{% url 'download_exe_file' %}" download>
+        <button>Download</button>
+    </a>
+</body>
+</html>
